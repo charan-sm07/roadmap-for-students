@@ -1,4 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk';
+// ❌ Removed Anthropic import (VERY IMPORTANT)
 
 export const generateRoadmap = (goal, skillLevel, timeCommitment, learningStyle) => {
   const isVideo = learningStyle === 'video';
@@ -22,7 +22,7 @@ export const generateRoadmap = (goal, skillLevel, timeCommitment, learningStyle)
       { name: 'Mid-level Application', type: 'Project', source: 'Frontend Mentor', link: 'https://www.frontendmentor.io/challenges' }
     ],
     advanced: [
-      { name: 'System Design & Scalability', type: 'Course', source: isVideo ? 'TechLead' : 'O\'Reilly', link: searchUrl('System Design Scalability', isVideo ? 'YouTube' : 'Google') },
+      { name: 'System Design & Scalability', type: 'Course', source: isVideo ? 'YouTube' : "O'Reilly", link: searchUrl('System Design Scalability', isVideo ? 'YouTube' : 'Google') },
       { name: 'Performance Optimization', type: 'Documentation', source: 'Official Docs', link: searchUrl(`${goal} performance optimization advanced`, 'Google') },
       { name: 'Capstone MVP', type: 'Project', source: 'Portfolio', link: searchUrl(`${goal} capstone project ideas`, 'Google') }
     ]
@@ -65,37 +65,26 @@ export const generateRoadmap = (goal, skillLevel, timeCommitment, learningStyle)
   return phases;
 };
 
-// AI Chatbot Helper using Anthropic (If Key exists, else mock)
+// ✅ AI Tutor (SIMULATED — SAFE FOR FRONTEND)
 export const askAiTutor = async (topicName, question) => {
-  const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
-  
-  if (!apiKey || apiKey === 'YOUR_API_KEY') {
-    // Return a smart simulation since user has no real API key configured.
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(`This is a simulated AI tutor response regarding "${topicName}".\n\nI see you're asking: "${question}".\n\nTo master this, I highly recommend focusing on the foundational abstractions. If you are stuck, try checking out the official documentation or taking a step back to build a small sandbox project to test out the concepts practically!`);
-      }, 1500);
-    });
-  }
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(`AI Tutor (Simulated) 🤖
 
-  try {
-    const anthropic = new Anthropic({
-      apiKey,
-      dangerouslyAllowBrowser: true 
-    });
+Topic: ${topicName}
 
-    const msg = await anthropic.messages.create({
-      model: "claude-3-opus-20240229",
-      max_tokens: 500,
-      system: `You are an expert, encouraging tutor specifically helping a student stuck on the topic: ${topicName}. Be extremely concise but highly actionable. Provide a bulleted answer or a small code example where relevant.`,
-      messages: [
-        { role: "user", content: question }
-      ]
-    });
-    
-    return msg.content[0].text;
-  } catch (err) {
-    console.error("AI Tutor Error:", err);
-    return "I encountered an error connecting to my brain. Please try again or check your API key.";
-  }
+Question: ${question}
+
+👉 Explanation:
+Focus on understanding the core concepts step by step.
+
+👉 Tip:
+- Break the problem into smaller parts  
+- Try building a mini project  
+- Refer official docs  
+
+👉 Example:
+Practice daily and apply concepts — that’s how mastery happens 🚀`);
+    }, 1000);
+  });
 };
