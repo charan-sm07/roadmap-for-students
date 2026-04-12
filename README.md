@@ -1,24 +1,30 @@
-# Roadmap for Students 🚀
+# 🚀 Roadmap for Students
 
-A smart AI-powered platform that helps students generate personalized learning roadmaps.
+A modern web app that helps students explore structured learning paths and track their growth.
 
-## 🔥 Features
-- AI-based roadmap generation
-- Progress tracking dashboard
-- Pomodoro timer
-- Quiz & flashcards system
-- Leaderboard
+## 🌍 Live Demo
+
+👉 https://roadmap-for-students.vercel.app
+
+## ✨ Features
+
+* 📌 Interactive roadmap visualization
+* 🎯 Goal-based learning paths
+* ⚡ Fast and responsive UI
 
 ## 🛠 Tech Stack
-- React.js
-- JavaScript
-- Tailwind CSS
-- Vite
 
-## 🎯 Purpose
-To help students plan and track their learning journey efficiently.
+* React + Vite
+* Tailwind CSS
+* JavaScript
 
-## 📌 Future Improvements
-- Backend integration
-- User authentication
-- Real-time updates
+## 📸 Screenshots
+
+(Add screenshots here later)
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev
+```
