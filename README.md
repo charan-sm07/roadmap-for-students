@@ -18,9 +18,6 @@ A modern web app that helps students explore structured learning paths and track
 * Tailwind CSS
 * JavaScript
 
-## 📸 Screenshots
-
-(Add screenshots here later)
 
 ## 🚀 Getting Started
 
